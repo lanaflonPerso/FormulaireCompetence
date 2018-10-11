@@ -1,28 +1,14 @@
 package fr.dawan.bean;
 
-import java.io.Serializable;
-
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.MappedSuperclass;
-
 /**
  * The Class DbObject.
  * Class for persistable Objects.
  * @author Pierre
  */
-
-@MappedSuperclass
-public abstract class DbObject implements Serializable {
+public abstract class DbObject {
 	
-	/** The Constant serialVersionUID. */
-	private static final long serialVersionUID = 1L;
-
 	/** The id. */
-	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
-	private Integer id;
+	private int id;
 	
 	/** The name. */
 	private String name;
