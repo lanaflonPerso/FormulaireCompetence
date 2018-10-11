@@ -1,72 +1,40 @@
 package fr.dawan.bean;
 
-
-import java.util.Date;
-
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 import javax.persistence.ManyToOne;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 
+
+// TODO: Auto-generated Javadoc
+/**
+ * The Class Student.
+ * @author PierreM
+ */
 @Entity
-public class Student {
-
-	@Id
-	@GeneratedValue( strategy = GenerationType.IDENTITY )
-	private int id;
-	private String Firstname;
-	private String lastname;
-	private String password;
-	private String email;
-	@Temporal(TemporalType.DATE)
-	private Date brithday;
-	@ManyToOne
-	private Classe classe;
+public class Student extends Person {
 	
-	//********************Getters / Setters******************
-	public int getId() {
-		return id;
+	/** The competences. */
+	@ManyToOne
+	private Competence[] competences;
+
+	
+	/**
+	 * Gets the competences.
+	 *
+	 * @return the competences
+	 */
+	public Competence[] getCompetences() {
+		return competences;
 	}
-	public void setId(int id) {
-		this.id = id;
+
+	/**
+	 * Sets the competences.
+	 *
+	 * @param competences the new competences
+	 */
+	public void setCompetences(Competence[] competences) {
+		this.competences = competences;
 	}
-	public String getFirstname() {
-		return Firstname;
-	}
-	public void setFirstname(String firstname) {
-		Firstname = firstname;
-	}
-	public String getLastname() {
-		return lastname;
-	}
-	public void setLastname(String lastname) {
-		this.lastname = lastname;
-	}
-	public String getPassword() {
-		return password;
-	}
-	public void setPassword(String password) {
-		this.password = password;
-	}
-	public String getEmail() {
-		return email;
-	}
-	public void setEmail(String email) {
-		this.email = email;
-	}
-	public Date getBrithday() {
-		return brithday;
-	}
-	public void setBrithday(Date brithday) {
-		this.brithday = brithday;
-	}
-	public Classe getClasse() {
-		return classe;
-	}
-	public void setClasse(Classe classe) {
-		this.classe = classe;
-	}
+	
+	
+	
 }

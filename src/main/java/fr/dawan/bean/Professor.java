@@ -1,5 +1,8 @@
 package fr.dawan.bean;
 
-public class Professor {
+import javax.persistence.Entity;
+
+@Entity
+public class Professor extends Person{
 
 }
