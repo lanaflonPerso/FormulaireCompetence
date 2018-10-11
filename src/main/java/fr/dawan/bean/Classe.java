@@ -14,12 +14,8 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 @Entity
-public class Classe {
+public class Classe extends DbObject{
 	
-	@Id
-	@GeneratedValue( strategy = GenerationType.IDENTITY )
-	private int id;
-	private String name;
 	@ManyToMany
 	private Set<Quiz> quizs;
 	private Professor professor;
