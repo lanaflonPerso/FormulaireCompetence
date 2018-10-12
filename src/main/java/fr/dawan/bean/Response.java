@@ -8,7 +8,7 @@ import javax.persistence.Entity;
  */
 
 @Entity
-public class Reponse extends DbObject {
+public class Response extends DbObject {
 
 	/** The is valid. */
 	private boolean isValid;
@@ -41,7 +41,7 @@ public class Reponse extends DbObject {
 	 * @param name the name
 	 * @param isValid :  right or wrong response.
 	 */
-	public Reponse(String name, boolean isValid) {
+	public Response(String name, boolean isValid) {
 		this.setName(name);
 		this.isValid = isValid;
 	}
@@ -70,7 +70,7 @@ public class Reponse extends DbObject {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Reponse other = (Reponse) obj;
+		Response other = (Response) obj;
 		if (isValid != other.isValid)
 			return false;
 		return true;
