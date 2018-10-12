@@ -1,25 +1,34 @@
 package fr.dawan.bean;
 
+import java.io.Serializable;
+
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.MappedSuperclass;
 
 /**
- * The Class DbObject.
- * Class for persistable Objects.
+ * The Class DbObject. Class for persistable Objects.
+ * 
  * @author PierreM
  */
-public abstract class DbObject {
-	
+@MappedSuperclass
+public abstract class DbObject implements Serializable {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	/** The id. */
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
-	
+
 	/** The name. */
 	private String name;
-	
-	//********************Getters / Setters******************
+
+	// ********************Getters / Setters******************
 	/**
 	 * Gets the id.
 	 *
@@ -28,7 +37,7 @@ public abstract class DbObject {
 	public int getId() {
 		return id;
 	}
-	
+
 	/**
 	 * Sets the id.
 	 *
@@ -37,7 +46,7 @@ public abstract class DbObject {
 	public void setId(int id) {
 		this.id = id;
 	}
-	
+
 	/**
 	 * Gets the name.
 	 *
@@ -46,7 +55,7 @@ public abstract class DbObject {
 	public String getName() {
 		return name;
 	}
-	
+
 	/**
 	 * Sets the name.
 	 *
@@ -56,9 +65,8 @@ public abstract class DbObject {
 		this.name = name;
 	}
 
-	
-	//******************** Others ********************
-	
+	// ******************** Others ********************
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
