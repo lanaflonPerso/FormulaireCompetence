@@ -38,11 +38,11 @@ public class Response extends DbObject {
 	/**
 	 * Instantiates a new reponse.
 	 *
-	 * @param value the name
+	 * @param value the value
 	 * @param isValid :  right or wrong response.
 	 */
-	public Response(String name, boolean isValid) {
-		this.setName(name);
+	public Response(String value, boolean isValid) {
+		this.setName(value);
 		this.isValid = isValid;
 	}
 	
