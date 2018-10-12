@@ -4,7 +4,6 @@ import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 
 
-// TODO: Auto-generated Javadoc
 /**
  * The Class Student.
  * @author PierreM

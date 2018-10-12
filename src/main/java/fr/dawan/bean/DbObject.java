@@ -7,7 +7,7 @@ import javax.persistence.Id;
 /**
  * The Class DbObject.
  * Class for persistable Objects.
- * @author Pierre
+ * @author PierreM
  */
 public abstract class DbObject {
 	
