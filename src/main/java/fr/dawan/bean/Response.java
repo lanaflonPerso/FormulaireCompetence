@@ -3,7 +3,7 @@ package fr.dawan.bean;
 import javax.persistence.Entity;
 
 /**
- * The Class Reponse.
+ * The Class Response.
  * @author PierreM
  */
 
