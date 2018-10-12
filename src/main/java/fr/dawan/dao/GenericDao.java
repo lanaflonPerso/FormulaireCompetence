@@ -88,7 +88,7 @@ public class GenericDao {
 	 * @return the list
 	 */
 	public <T extends DbObject>  List<T> findAll(Class<T> clazz,EntityManager em,boolean closeConnection) {
-		TypedQuery<T> query=em.createQuery("select entity from "+clazz.getName() + " entity",clazz);
+		TypedQuery<T> query=em.createQuery("select entity from "+ clazz.getName() + " entity",clazz);
 		List<T> result=query.getResultList();
 		if(closeConnection)
 			em.close();
