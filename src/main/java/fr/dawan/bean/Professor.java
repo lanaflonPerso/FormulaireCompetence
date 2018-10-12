@@ -1,13 +1,19 @@
 package fr.dawan.bean;
 
 import javax.persistence.Entity;
+import javax.persistence.Table;
 
 /**
  * The Class Professor.
  */
 @Entity
+@Table
 public class Professor extends Person{
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	/** The administrator. */
 	private boolean administrator;
 

@@ -1,8 +1,12 @@
 package fr.dawan.bean;
 
 import java.time.LocalDate;
+import java.util.List;
 
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
 import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
@@ -10,7 +14,14 @@ import javax.persistence.TemporalType;
  * The Abstract Class Person.
  * @author PierreM
  */
+@Table
+@Inheritance(strategy= InheritanceType.JOINED)
 public abstract class Person extends DbObject {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 
 	/** The lastname. */
 	private String lastname;
@@ -27,7 +38,7 @@ public abstract class Person extends DbObject {
 	
 	/** The competences. */
 	@ManyToOne
-	private Classe[] classes;
+	private List<Classe> classes;
 	
 	//********************Getters / Setters******************
 	
@@ -108,7 +119,7 @@ public abstract class Person extends DbObject {
 	 *
 	 * @return the competences
 	 */
-	public Classe[] getClasses() {
+	public List<Classe> getClasses() {
 		return classes;
 	}
 	
@@ -117,9 +128,7 @@ public abstract class Person extends DbObject {
 	 *
 	 * @param competences the new competences
 	 */
-	public void setCompetences(Classe[] classe) {
+	public void setClasses(List<Classe> classe) {
 		this.classes = classe;
 	}
-	
-	
 }
