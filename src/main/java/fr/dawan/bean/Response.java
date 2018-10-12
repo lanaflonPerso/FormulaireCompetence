@@ -41,8 +41,8 @@ public class Response extends DbObject {
 	 * @param value the name
 	 * @param isValid :  right or wrong response.
 	 */
-	public Response(String value, boolean isValid) {
-		this.setName(value);
+	public Response(String name, boolean isValid) {
+		this.setName(name);
 		this.isValid = isValid;
 	}
 	
