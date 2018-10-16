@@ -12,6 +12,7 @@ import javax.persistence.TemporalType;
 
 @Entity
 public class Classe extends DbObject{
+	private static final long serialVersionUID = 1L;
 	
 	@ManyToMany
 	private Set<Quiz> quizs;
@@ -24,7 +25,6 @@ public class Classe extends DbObject{
 	private Date endDate;
 
 	//********************Getters / Setters******************
-
 	public Set<Quiz> getQuizs() {
 		return quizs;
 	}

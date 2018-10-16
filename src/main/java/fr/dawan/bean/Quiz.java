@@ -1,6 +1,6 @@
 package fr.dawan.bean;
 
-import java.time.LocalDate;
+import java.util.Date;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
@@ -10,137 +10,67 @@ import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
-/**
- * The Class Quiz.
- */
 @Entity
 public class Quiz extends DbObject{
-	
-	/** The competence. */
+	private static final long serialVersionUID = 1L;
+
+	private String name;
 	private Competence competence;
 	
-	/** The questions. */
 	@OneToMany(cascade= {CascadeType.MERGE,CascadeType.PERSIST,CascadeType.REFRESH})
 	private Set<Question> questions;
 	
-	/** The date debut. */
 	@Temporal(TemporalType.DATE)
-	private LocalDate dateDebut;
+	private Date dateDebut;
 	
-	/** The date fin. */
 	@Temporal(TemporalType.DATE)
-	private LocalDate dateFin;
+	private Date dateFin;
 	
-	/** The author. */
 	@ManyToOne
 	private Professor author;
 	
-	//********************Getters / Setters******************
-
-	/**
-	 * Gets the competence.
-	 *
-	 * @return the competence
-	 */
-	public Competence getCompetence() {
-		return competence;
-	}
-
-	/**
-	 * Sets the competence.
-	 *
-	 * @param competence the new competence
-	 */
-	public void setCompetence(Competence competence) {
-		this.competence = competence;
-	}
-
-	/**
-	 * Gets the questions.
-	 *
-	 * @return the questions
-	 */
-	public Set<Question> getQuestions() {
-		return questions;
-	}
-
-	/**
-	 * Sets the questions.
-	 *
-	 * @param questions the new questions
-	 */
-	public void setQuestions(Set<Question> questions) {
-		this.questions = questions;
-	}
-
-	/**
-	 * Gets the date debut.
-	 *
-	 * @return the date debut
-	 */
-	public LocalDate getDateDebut() {
-		return dateDebut;
-	}
-
-	/**
-	 * Sets the date debut.
-	 *
-	 * @param dateDebut the new date debut
-	 */
-	public void setDateDebut(LocalDate dateDebut) {
-		this.dateDebut = dateDebut;
-	}
-
-	/**
-	 * Gets the date fin.
-	 *
-	 * @return the date fin
-	 */
-	public LocalDate getDateFin() {
-		return dateFin;
-	}
-
-	/**
-	 * Sets the date fin.
-	 *
-	 * @param dateFin the new date fin
-	 */
-	public void setDateFin(LocalDate dateFin) {
-		this.dateFin = dateFin;
-	}
-
-	/**
-	 * Gets the author.
-	 *
-	 * @return the author
-	 */
-	public Professor getAuthor() {
-		return author;
-	}
-
-	/**
-	 * Sets the author.
-	 *
-	 * @param author the new author
-	 */
-	public void setAuthor(Professor author) {
-		this.author = author;
-	}
-	
 	//******************** Constructors ********************
-	
+	public Quiz() {}
 	public Quiz(String name, Professor author) {
 		setName(name);
 		this.author = author;
 	}
 	
-	//******************** Methods **********************
-	
-	public boolean isActive() {
-		LocalDate now = LocalDate.now();
-		if ((now.isAfter(dateDebut) && now.isBefore(dateFin)))
-			return true;
-		return false;
+	//********************Getters / Setters******************
+	public Competence getCompetence() {
+		return competence;
 	}
-	
+	public void setCompetence(Competence competence) {
+		this.competence = competence;
+	}
+	public Set<Question> getQuestions() {
+		return questions;
+	}
+	public void setQuestions(Set<Question> questions) {
+		this.questions = questions;
+	}
+	public Date getDateDebut() {
+		return dateDebut;
+	}
+	public void setDateDebut(Date dateDebut) {
+		this.dateDebut = dateDebut;
+	}
+	public Date getDateFin() {
+		return dateFin;
+	}
+	public void setDateFin(Date dateFin) {
+		this.dateFin = dateFin;
+	}
+	public Professor getAuthor() {
+		return author;
+	}
+	public void setAuthor(Professor author) {
+		this.author = author;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
 }
