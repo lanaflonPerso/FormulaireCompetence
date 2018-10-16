@@ -2,3 +2,5 @@
 target/
 .project
 .settings/
+.src/main/webapp/WEB-INF/lib/
+src/main/resources/META-INF/persistence.xml
