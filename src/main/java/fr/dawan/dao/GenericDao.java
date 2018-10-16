@@ -25,7 +25,7 @@ public class GenericDao {
 		EntityTransaction tx=em.getTransaction();
 		try {
 			tx.begin();
-			if(item.getId()==0)
+			if(item.getId()==null)
 				em.persist(item);
 			else
 				em.merge(item);
@@ -49,7 +49,7 @@ public class GenericDao {
 		EntityTransaction tx=em.getTransaction();
 		try {
 			tx.begin();
-			if(item.getId()!=0)
+			if(item.getId()!=null)
 				em.remove(item);
 			tx.commit();
 		} catch (Exception e) {
