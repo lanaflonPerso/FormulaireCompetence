@@ -1,6 +1,7 @@
 package fr.dawan.bean;
 
 import java.util.Date;
+import java.util.HashSet;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
@@ -19,7 +20,7 @@ public class Quiz extends DbObject {
 	private Competence competence;
 	
 	@OneToMany(cascade= {CascadeType.MERGE,CascadeType.PERSIST,CascadeType.REFRESH})
-	private Set<Question> questions;
+	private Set<Question> questions= new HashSet<Question>();
 	
 	@Temporal(TemporalType.DATE)
 	private Date dateDebut;
@@ -36,6 +37,12 @@ public class Quiz extends DbObject {
 	public Quiz(String name, Professor author) {
 		setName(name);
 		this.author = author;
+	}
+	
+	//********************Setters Perso**********************
+	public void setQuestion(Question question) {
+		System.out.println("question= "+question); //=================================================
+		this.questions.add(question);
 	}
 	
 	//********************Getters / Setters******************
@@ -99,6 +106,7 @@ public class Quiz extends DbObject {
 			questions.add(question);
 	}
 
+	//********************Override***************************
 	@Override
 	public String toString() {
 		return "Quiz [name=" + name + ", competence=" + competence + ", questions=" + questions + ", dateDebut="

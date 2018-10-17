@@ -4,25 +4,23 @@ import javax.persistence.Entity;
 
 @Entity
 public class Response extends DbObject {
-
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 8079573036007897371L;
 	
 	private String value;
-	public String getValue() {
-		return value;
-	}
-
-	public void setValue(String value) {
-		this.value = value;
-	}
-
 	private boolean valid;
 	
+	//******************** Constructors ********************
+	
+	public Response(String value, boolean valid) {
+		this.value = value;
+		this.valid = valid;
+	}
+	
+	public Response() {
+		
+	}
+	
 	//********************Getters / Setters******************
-
 	public boolean isValid() {
 		return valid;
 	}
@@ -31,16 +29,18 @@ public class Response extends DbObject {
 		this.valid = isValid;
 	}
 	
-	//******************** Constructors ********************
-
-	public Response(String value, boolean valid) {
-		super();
+	public String getValue() {
+		return value;
+	}
+	
+	public void setValue(String value) {
 		this.value = value;
-		this.valid = valid;
 	}
 
-	public Response() {
-
+	//********************Override***************************
+	@Override
+	public String toString() {
+		return "Response [value=" + value + ", valid=" + valid + "]";
 	}
 }
 	

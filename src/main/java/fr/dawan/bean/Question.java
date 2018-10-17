@@ -12,8 +12,13 @@ public class Question extends DbObject {
 	private static final long serialVersionUID = 1L;
 	
 	private String titleQuestion;
-	@OneToMany(cascade = { CascadeType.PERSIST })
+	@OneToMany(cascade = CascadeType.ALL)
 	private Set<Response> responses=new HashSet<Response>();
+	
+	//********************Setters Perso**********************
+	public void setResponse(Response response) {
+		this.responses.add(response);
+	}
 	
 	//********************Getters / Setters******************
 	public String getTitleQuestion() {
@@ -22,16 +27,16 @@ public class Question extends DbObject {
 	public void setTitleQuestion(String titleQuestion) {
 		this.titleQuestion = titleQuestion;
 	}
-	
-	// ******************** Methods **********************
-
-	public void addValidResponse(String value) {
-		responses.add(new Response(value, true));
+	public Set<Response> getResponses() {
+		return responses;
+	}
+	public void setResponses(Set<Response> responses) {
+		this.responses = responses;
 	}
 
-	public void addUnvalidResponse(String value) {
-		responses.add(new Response(value, false));
+	//********************Override***************************
+	@Override
+	public String toString() {
+		return "Question [titleQuestion=" + titleQuestion + ", responses=" + responses + "]";
 	}
-
-
 }
