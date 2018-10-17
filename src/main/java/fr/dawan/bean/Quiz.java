@@ -1,7 +1,6 @@
 package fr.dawan.bean;
 
 import java.util.Date;
-import java.util.HashSet;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
@@ -12,16 +11,15 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 @Entity
-public class Quiz extends DbObject{
+public class Quiz extends DbObject {
 	private static final long serialVersionUID = 1L;
 
 	private String name;
-	
-	@ManyToOne(cascade = { CascadeType.PERSIST})
+	@ManyToOne(cascade= {CascadeType.MERGE,CascadeType.PERSIST,CascadeType.REFRESH})
 	private Competence competence;
 	
-	@OneToMany(cascade= {CascadeType.PERSIST})
-	private Set<Question> questions= new HashSet<Question>();
+	@OneToMany(cascade= {CascadeType.MERGE,CascadeType.PERSIST,CascadeType.REFRESH})
+	private Set<Question> questions;
 	
 	@Temporal(TemporalType.DATE)
 	private Date dateDebut;
@@ -29,7 +27,7 @@ public class Quiz extends DbObject{
 	@Temporal(TemporalType.DATE)
 	private Date dateFin;
 	
-	@ManyToOne(cascade= {CascadeType.PERSIST})
+	@ManyToOne
 	private Professor author;
 	
 	//******************** Constructors ********************
@@ -101,4 +99,9 @@ public class Quiz extends DbObject{
 			questions.add(question);
 	}
 
+	@Override
+	public String toString() {
+		return "Quiz [name=" + name + ", competence=" + competence + ", questions=" + questions + ", dateDebut="
+				+ dateDebut + ", dateFin=" + dateFin + ", author=" + author + ", toString()=" + super.toString() + "]";
+	}
 }
