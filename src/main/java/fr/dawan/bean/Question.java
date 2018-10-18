@@ -1,6 +1,6 @@
 package fr.dawan.bean;
 
-import java.util.HashSet;
+import java.util.LinkedHashSet;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
@@ -13,7 +13,7 @@ public class Question extends DbObject {
 	
 	private String titleQuestion;
 	@OneToMany(cascade = CascadeType.ALL)
-	private Set<Response> responses=new HashSet<Response>();
+	private Set<Response> responses=new LinkedHashSet<Response>();
 	
 	//********************Setters Perso**********************
 	public void setResponse(Response response) {

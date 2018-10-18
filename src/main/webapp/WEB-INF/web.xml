@@ -1,37 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
   <display-name>Archetype Created Web Application</display-name>
-  
   <filter>
     <description></description>
     <display-name>StudentFilter</display-name>
     <filter-name>StudentFilter</filter-name>
     <filter-class>fr.dawan.filter.StudentFilter</filter-class>
   </filter>
-  
   <filter>
     <description></description>
     <display-name>AdminFilter</display-name>
     <filter-name>AdminFilter</filter-name>
     <filter-class>fr.dawan.filter.AdminFilter</filter-class>
   </filter>
-  
   <filter>
     <display-name>ProfessorFilter</display-name>
     <filter-name>ProfessorFilter</filter-name>
     <filter-class>fr.dawan.filter.ProfessorFilter</filter-class>
   </filter>
-  
   <filter-mapping>
     <filter-name>StudentFilter</filter-name>
     <url-pattern>/student/*</url-pattern>
   </filter-mapping>
-  
   <filter-mapping>
     <filter-name>AdminFilter</filter-name>
     <url-pattern>/admin/*</url-pattern>
   </filter-mapping>
-  
   <filter-mapping>
     <filter-name>ProfessorFilter</filter-name>
     <url-pattern>/professor/*</url-pattern>

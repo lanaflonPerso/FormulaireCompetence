@@ -15,12 +15,15 @@
 		<div class="row">
 		
 			<aside class="col-md-4">
-			
+				<ul class="list-group">
+					<li class="list-group-item"><a href='<c:url value="/professor/view_quiz" />'>Voir le formulaire</a></li>
+					<li class="list-group-item"><a href=''>Cloturer le formulaire</a></li>
+				</ul>
 			</aside>
 			
 			<div class="col-md-8">
 			
-				<%-- <h1>${ sessionScope.quiz.name }</h1> --%>
+				<h1>${ sessionScope.quiz.name }</h1>
 				
 				<form id="myForm" method="post" action="">
 
