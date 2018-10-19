@@ -15,7 +15,7 @@
 		<div class="row">
 		
 			<aside class="col-md-4">
-			
+				<%@include file="/WEB-INF/element/QuizProfessor.jsp" %>
 			</aside>
 			
 			<div class="col-md-8">

@@ -41,7 +41,6 @@ public class Quiz extends DbObject {
 	
 	//********************Setters Perso**********************
 	public void setQuestion(Question question) {
-		System.out.println("question= "+question); //=================================================
 		this.questions.add(question);
 	}
 	

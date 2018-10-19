@@ -15,23 +15,19 @@
 		<div class="row">
 		
 			<aside class="col-md-4">
-				<ul class="list-group">
-					<li class="list-group-item"><a href='<c:url value="/professor/view_quiz" />'>Voir le formulaire</a></li>
-					<li class="list-group-item"><a href=''>Cloturer le formulaire</a></li>
-				</ul>
+				<%@include file="/WEB-INF/element/QuizProfessor.jsp" %>
 			</aside>
 			
 			<div class="col-md-8">
 				<h1>${ quiz.name }</h1>
 
-				
-				<c:forEach var="question" items="${ quiz.questions }" varStatus="statusQ">
+				<c:forEach var="question" items="${ quiz.questions }">
 					
 					<h3>${ question.titleQuestion }</h3>
-					<c:forEach var="response" items="${ question.responses }" varStatus="statusR">
+					<c:forEach var="response" items="${ question.responses }">
 					<div class="form-check">
-						<input class="form-check-input" type="checkbox" value="Q${ statusQ.index }R${ statusR.index }" id="Q${ statusQ.index }R${ statusR.index }"/>
-						<label class="Q${ statusQ.index }R${ statusR.index }">${ response.value }</label>
+						<input class="form-check-input" type="checkbox" value="Q${ question.id }-R${ response.id }" id="Q${ question.id }-R${ response.id }"/>
+						<label class="Q${ question.id }-R${ response.id }">${ response.value }</label>
 					</div>
 					</c:forEach>
 				</c:forEach>

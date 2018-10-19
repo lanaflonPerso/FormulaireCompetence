@@ -33,7 +33,7 @@ public class ViewQuizServlet extends HttpServlet {
 				EntityManagerFactory eef= Persistence.createEntityManagerFactory("FormulaireCompetence");
 				EntityManager em= eef.createEntityManager();
 				Quiz quiz= dao.findById(Quiz.class, id, em, false);
-				request.setAttribute("quiz", quiz);
+				request.getSession().setAttribute("quiz", quiz);
 				System.out.println(quiz.getQuestions()); //====================================================
 			} catch (Exception e) {
 				// TODO Ajouter une redirection 404
@@ -47,7 +47,6 @@ public class ViewQuizServlet extends HttpServlet {
 				// TODO Ajouter une redirection 404
 			}
 		}
-		
 		
 		request.getRequestDispatcher(JSP).forward(request, response);
 	}
